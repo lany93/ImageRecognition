@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "imagerecognition"
+version = "0.1.0"
+description = "Image recognition with clip model."
+authors = ["Yan-Xing Lan <yanxing.lan@gmx.ch>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+torch = "^2.5.1"
+open-clip-torch = "^2.29.0"
+transformers = "^4.46.3"
+openai-clip = "^1.0.1"
+pre-commit = "^4.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
