@@ -3,6 +3,7 @@
 from torchvision import transforms
 from torch.utils.data import Dataset
 from PIL import Image
+from utils.read_data import IMAGE_LABEL, LABELS
 
 
 class Pipeline(Dataset):
@@ -20,9 +21,11 @@ class Pipeline(Dataset):
         )
 
     def __len__(self):
-        return len(self.data)
+        return len(self.data["image_path"])
 
     def __getitem__(self, idx: int):
-        label = self.data["label"][idx]
+        label = self.data[IMAGE_LABEL][idx]
+        label_index = self.data[LABELS].index(label)
+        # description = self.data[IMAGE_CAPTION][idx]
         with Image.open(self.data["image_path"][idx]) as img:
-            return self.transform(img), label
+            return self.transform(img), label_index
